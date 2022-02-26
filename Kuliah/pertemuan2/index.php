@@ -14,6 +14,7 @@ echo "<br>";
 echo 10;
 echo "<br>";
 echo true;
+echo "<br>";
 echo false;
 // Penulisan sintaks PHP
 // 1. PHP di dalam HTML
@@ -59,6 +60,7 @@ echo "<br>";
 // <, >, <=, >=, ==
 
 var_dump(1 > 5);
+echo "<br>";
 var_dump(1 == "1");
 echo "<br>";
 
