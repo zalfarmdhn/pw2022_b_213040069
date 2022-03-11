@@ -6,7 +6,7 @@ $x = 20;
 if ($x < 20) {
     echo "classified";
 } elseif ($x == 20) {
-    echo "jackpot";
+    echo "ssr";
 } else {
     echo "covert";
 }
