@@ -23,3 +23,4 @@ do {
     echo "Hello World! (pengulangan do.. while) <br>";
     $i++;
 } while ($i < 5);
+?>
