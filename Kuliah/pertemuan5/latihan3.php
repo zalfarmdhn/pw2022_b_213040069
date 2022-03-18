@@ -25,15 +25,8 @@ $mahasiswa = [
 </head>
 
 <body>
-    <h1>Daftar Mahasiswa (Cara 1)</h1>
 
-    <ul>
-        <?php foreach ($mahasiswa as $mhs) : ?>
-            <li><?= $mhs[0]; ?></li>
-        <?php endforeach; ?>
-    </ul>
-
-    <h1>Daftar Mahasiswa (Cara 2)</h1>
+    <h1>Daftar Mahasiswa</h1>
     <?php foreach ($mahasiswa as $mhs) : ?>
         <ul>
             <li> Nama :<?= $mhs[0]; ?> </li>
