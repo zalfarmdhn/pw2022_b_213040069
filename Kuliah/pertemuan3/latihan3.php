@@ -14,4 +14,3 @@ if ($x < 20) {
 // if else if else
 // ternary
 // switch
-?>
