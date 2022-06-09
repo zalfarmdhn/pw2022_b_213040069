@@ -78,9 +78,8 @@ if (isset($_POST["cari"])) {
             </thead>
             <tbody>
 
-                <?php
-                foreach ($anime as $ani) {
-                    $no = 1; ?>
+                <?php $no = 1;
+                foreach ($anime as $ani) { ?>
                     <tr class="align-middle">
                         <th scope="row"><?= $no++; ?></th>
                         <td>
@@ -94,7 +93,7 @@ if (isset($_POST["cari"])) {
                         <td>
                             <a href="detail-anime.php?id=<?= $ani["id"]; ?>" class="btn-circle btn-sm badge bg-primary text-light action-button"><i class="fas fa-eye"></i></a>
                             <a href="edit-anime.php?id=<?= $ani["id"]; ?>" class="btn-circle btn-sm badge bg-warning text-light action-button"><i class="fas fa-pen"></i></a>
-                            <a href="delete-admin.php?id=<?= $ani["id"]; ?>" class="btn-circle btn-sm badge bg-danger text-light action-button" onclick="return confirm('Apakah kamu yakin akan menghapus data ini?')"><i class="fas fa-trash"></i></a>
+                            <a href="delete-anime.php?id=<?= $ani["id"]; ?>" class="btn-circle btn-sm badge bg-danger text-light action-button" onclick="return confirm('Apakah kamu yakin akan menghapus data ini?')"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>

@@ -21,8 +21,9 @@ if (isset($_POST["login"])) {
             $_SESSION['login'] = true;
             $_SESSION['level'] = $data["level"];
             $_SESSION['username'] = $data["username"];
+            $_SESSION['id'] = $data["id"];
             $_SESSION['nama'] = $data["nama"];
-            header("Location: admin/index.php");
+            header("Location: index.php");
             exit;
         }
     }

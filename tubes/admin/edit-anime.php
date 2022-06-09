@@ -2,7 +2,7 @@
 session_start();
 require '../functions.php';
 // Mengecek session dan login admin atau user
-checkLogin();
+checkLoginAdmin();
 
 // ambil data di URL
 $id = $_GET["id"];
@@ -84,6 +84,18 @@ if (isset($_POST["submit"])) {
                             <label for="nama_anime" class="col-sm-2 col-form-label">Nama Anime</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="nama_anime" name="nama_anime" required value="<?= $ani["nama_anime"]; ?>">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="nama_anime" class="col-sm-2 col-form-label">Nama Alternatif</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nama_alternatif" value="<?= $ani["nama_alternatif"]; ?>" name="nama_alternatif" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="nama_anime" class="col-sm-2 col-form-label">Deskripsi</label>
+                            <div class="col-sm-10 form-group">
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" id="exampleFormControlTextarea1" rows="7"><?= $ani["deskripsi"]; ?></textarea>
                             </div>
                         </div>
                         <div class="mb-3 row">

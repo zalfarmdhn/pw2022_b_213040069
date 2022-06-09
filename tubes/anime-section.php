@@ -2,8 +2,13 @@
 require 'functions.php';
 session_start();
 if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
+    echo "      <script>
+                    alert('Anda harus login terlebih dahulu!');       
+                    window.location.href = 'login.php';
+                </script>
+         ";
 }
+
 $conn = koneksi();
 $anime = query("SELECT * FROM anime NATURAL JOIN kategori") or die(mysqli_error($conn));
 $kategori = query("SELECT * FROM kategori");
@@ -87,7 +92,7 @@ $kategori = query("SELECT * FROM kategori");
                             <div class="card-body pr-3">
                                 <h6 class="card-text row"><small class="text-muted"><?= $ani["studio"]; ?></small></h6>
                                 <h5 class="card-title row"><?= $ani["nama_anime"]; ?></h5>
-                                <p class="card-text row"><small class="text-muted"><?= $ani["rilis"]; ?></small></p>
+                                <p class="card-text row"><small class="text-muted"><?= $ani["nama_alternatif"]; ?></small></p>
                             </div>
                         </div>
                     </a>

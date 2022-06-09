@@ -36,6 +36,10 @@
         flex-direction: column;
         color: #FFFFFF;
     }
+
+    .modal-backdrop {
+        z-index: 3;
+    }
 </style>
 
 <!-- Favicons -->
@@ -71,26 +75,48 @@
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#">Stream</a>
                 </li>
-                <?php if (isset($_SESSION["login"])) { ?>
-                    <?php if ($_SESSION["level"]) { ?>
-                        <?php if ($_SESSION["level"] == "user") { ?>
-                            <li class="nav-item">
-                                <a class="nav-link mr-3" href="#">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-primary nav-link mr-3" href="logout.php" style="color: white;" onclick="return confirm('Apakah kamu yakin ingin logout?')"><i class="fas fa-arrow-right-to-bracket"></i> Logout</a>
-                            </li>
-                        <?php } ?>
-                    <?php } ?>
-                <?php } else { ?>
+                <?php if (!isset($_SESSION["login"])) { ?>
                     <li class="nav-item">
                         <a class="btn btn-primary nav-link mr-3" href="login.php" style="color: white;"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
                     </li>
-                <?php } ?>
+                <?php } else { ?>
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline"><?= $_SESSION["username"]; ?></span>
+                            <img class="img-profile rounded-circle" src="assets/img/nophoto.jpg" width="20" height="20">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="profile.php?id=<?= $_SESSION["id"]; ?>">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    <?php } ?>
+                    </li>
             </ul>
 
-
-
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Pencet tombol "logout" jika kamu mau keluar dari sesi ini.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="logout.php">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </nav>
     </div>

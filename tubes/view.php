@@ -101,13 +101,12 @@ $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
                     </div>
                 </div>
                 <div class="container row">
-                    <p class="mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati quos tempora, ab nobis modi in quisquam eos! Maxime, soluta? Non iure veniam sequi error cumque tempora nam veritatis pariatur amet sapiente officia ipsa iste tenetur omnis, quidem officiis id! Laborum deserunt totam ipsa, beatae voluptates corrupti cupiditate eos tempore quam vero repellat ad nesciunt rerum deleniti dolor ut quod veritatis omnis expedita doloremque? Consectetur numquam sed ullam quod architecto dolore ducimus, doloribus, in tenetur placeat pariatur atque, natus consequuntur ratione praesentium aliquam non reprehenderit rerum enim culpa quis. Reprehenderit ab debitis et iusto corrupti error modi distinctio consectetur sed eveniet.<br><br>
-                        Incidunt sunt nesciunt eum, velit magnam eveniet. Corrupti voluptatem doloribus nisi perspiciatis sequi libero laborum impedit rerum ducimus, quis itaque obcaecati in labore alias, amet accusantium repellat laboriosam, ut placeat sunt aspernatur sapiente. Maiores hic eos quisquam recusandae commodi, deserunt et veritatis!
+                    <p class="mb-3"><?= $ani["deskripsi"]; ?>
                     </p>
                 </div>
                 <h4>Tonton <?= $ani["nama_anime"]; ?> di platform streaming dibawah ini! </h4>
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-1 ml-2">
                         <a href="#" class="logo"><img src="assets/img/netflix.png" alt="" class="logo"></a>
                     </div>
                     <div class="col-1 ml-2">

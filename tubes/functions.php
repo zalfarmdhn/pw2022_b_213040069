@@ -22,6 +22,8 @@ function tambahAnime($data)
     $conn = koneksi();
     // ambil data dari tiap elemen dalam form
     $nama = htmlspecialchars($data["nama_anime"]);
+    $nama_alt = htmlspecialchars($data["nama_alternatif"]);
+    $deskripsi = $data["deskripsi"];
     $studio = htmlspecialchars($data["studio"]);
     $episode = htmlspecialchars($data["episode"]);
     $status = htmlspecialchars($data["status_anime"]);
@@ -38,7 +40,7 @@ function tambahAnime($data)
     // query insert data
     $query =    "   INSERT INTO anime
                     VALUES
-                    ('', '$poster', '$nama', '$studio', '$episode', '$status', '$rilis', '$genres')
+                    ('', '$poster', '$nama', '$nama_alt',  '$deskripsi', '$studio', '$episode', '$status', '$rilis', '$genres')
                 ";
     mysqli_query($conn, $query);
 
@@ -137,6 +139,8 @@ function editAnime($data)
     // ambil data dari tiap elemen dalam form
     $id = $data["id"];
     $nama = htmlspecialchars($data["nama_anime"]);
+    $nama_alt = htmlspecialchars($data["nama_alternatif"]);
+    $deskripsi = $data["deskripsi"];
     $studio = htmlspecialchars($data["studio"]);
     $episode = htmlspecialchars($data["episode"]);
     $status = htmlspecialchars($data["status_anime"]);
@@ -156,6 +160,8 @@ function editAnime($data)
     $query = "  UPDATE anime SET 
                 poster_anime = '$gambar',
                 nama_anime = '$nama',
+                nama_alternatif = '$nama_alt',
+                deskripsi = '$deskripsi',
                 studio = '$studio',
                 episode = '$episode',
                 status_anime = '$status',

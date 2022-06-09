@@ -1,12 +1,20 @@
 <?php
 require 'functions.php';
 session_start();
+if (!isset($_SESSION["login"])) {
+    echo "      <script>
+                    alert('Anda harus login terlebih dahulu!');       
+                    window.location.href = 'login.php';
+                </script>
+         ";
+}
 
 $filter = $_GET["id"];
 
 $anime = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id_kategori = '$filter'");
 $kategori = query("SELECT * FROM kategori");
 
+$nama = query("SELECT genre FROM kategori WHERE id_kategori = '$filter'")[0];
 ?>
 
 <!doctype html>
@@ -53,10 +61,10 @@ $kategori = query("SELECT * FROM kategori");
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="anime-section.php">Anime</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Genre</li>
+                <li class="breadcrumb-item active" aria-current="page"><?= $nama["genre"]; ?></li>
             </ol>
         </nav>
-        <h3 class="menu-title float-left">Anime</h3>
+        <h3 class="menu-title float-left">Anime <?= $nama["genre"]; ?></h3>
         <div class="row col-3 float-right">
 
             <form class="d-none d-sm-inline-block form-inline navbar-search" action="" method="post">
@@ -86,9 +94,6 @@ $kategori = query("SELECT * FROM kategori");
                         </div>
                     </a>
                 <?php endforeach; ?>
-                <?php if ($anime = []) : ?>
-                    <h2>Data tidak tersedia</h2>
-                <?php endif; ?>
             </div>
         </div>
     </div>

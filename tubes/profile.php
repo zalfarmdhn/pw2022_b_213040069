@@ -4,7 +4,12 @@ session_start();
 
 $conn = koneksi();
 $anime = query("SELECT * FROM anime");
-$kategori = query("SELECT * FROM kategori");
+$user = query("SELECT * FROM users");
+
+// ambil data di URL
+$id = $_GET["id"];
+
+$uadm = query("SELECT * FROM users WHERE id = $id")[0];
 
 ?>
 <!doctype html>
@@ -46,46 +51,43 @@ $kategori = query("SELECT * FROM kategori");
 
     <!-- Menu -->
 
-    <!-- Carousel -->
-    <div id="carouselExampleInterval" class="carousel slide w-50 mx-auto top" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-                <img src="assets/img/bg-login.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-interval="2000">
-                <img src="assets/img/bg-login.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/img/bg-login.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </button>
-        <h3 class="heading-text">Selamat datang di Punimu!</h3>
-    </div>
-    <hr class="container featurette-divider">
-    <!-- End of carousel -->
+    <!-- Profile -->
+    <div class="container card shadow top">
+        <ul>
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $uadm["id"]; ?>">
+                    <a href="admin.php" class="mt-2"><i class="fas fa-arrow-left mb-3"></i> Kembali</a>
+                    <div class="mb-3 row">
+                        <label for="genre" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nama" name="nama" required style="width: 150px;" value="<?= $uadm["nama"]; ?>">
+                        </div>
+                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Username</label>
+                        <div class="col-sm-10 mt-3">
+                            <input type="text" class="form-control" id="username" name="username" required style="width: 150px;" value="<?= $uadm["username"]; ?>">
+                        </div>
+                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Email</label>
+                        <div class="col-sm-10 mt-3">
+                            <input type="text" class="form-control" id="email" name="email" required style="width: 200px;" value="<?= $uadm["email"]; ?>">
+                        </div>
+                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Password Baru</label>
+                        <div class="col-sm-10 mt-3">
+                            <input type="password" class="form-control" id="password" name="password" style="width: 200px;" value="">
+                        </div>
+                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Konfirm Password</label>
+                        <div class="col-sm-10 mt-3">
+                            <input type="password" class="form-control" id="confPass" name="confPass" style="width: 200px;" value="">
+                        </div>
+                    </div>
+                    <!-- End of profile -->
 
 
-    <!-- Marketing messaging and featurettes
+                    <!-- Marketing messaging and featurettes
       ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-
-
-
-
-
-    </div><!-- /.container -->
-
+                    <!-- Wrap the rest of the page in another container to center all the content. -->
+        </ul>
+    </div>
 
     <!-- FOOTER -->
     <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">

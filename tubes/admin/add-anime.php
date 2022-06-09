@@ -75,6 +75,18 @@ if (isset($_POST["submit"])) {
                             </div>
                         </div>
                         <div class="mb-3 row">
+                            <label for="nama_anime" class="col-sm-2 col-form-label">Nama Alternatif</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nama_alternatif" name="nama_alternatif" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="nama_anime" class="col-sm-2 col-form-label">Deskripsi</label>
+                            <div class="col-sm-10 form-group">
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" id="exampleFormControlTextarea1" rows="5" maxlength="800" minlength="254"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
                             <label for="studio" class="col-sm-2 col-form-label">Studio</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="studio" name="studio" required>

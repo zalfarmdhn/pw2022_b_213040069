@@ -1,5 +1,6 @@
 <?php
 require '../functions.php';
+session_start();
 // Mengecek session dan login admin atau user
 checkLoginAdmin();
 
