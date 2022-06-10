@@ -48,6 +48,9 @@ if (isset($_POST["cari"])) {
         <h3 class="mt-3">Data Anime <span class="main-color">Punimu</h3>
         <p class="mb-4">Data anime yang tersimpan dalam website Punimu</p>
         <!-- Page Content -->
+        <a href="print.php" class="ml-3">
+            <span class="icon"><i class="fas fa-print"></i> Cetak</span>
+        </a>
         <a href="add-anime.php" class="btn btn-primary float-right mb-3">
             <span class="icon"><i class="fas fa-plus"></i> Tambah Anime</span>
         </a>

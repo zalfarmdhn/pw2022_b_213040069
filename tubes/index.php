@@ -6,6 +6,8 @@ $conn = koneksi();
 $anime = query("SELECT * FROM anime");
 $kategori = query("SELECT * FROM kategori");
 
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,6 +37,20 @@ $kategori = query("SELECT * FROM kategori");
         .heading-text {
             color: #343A40;
             font-family: 'Poppins', sans-serif;
+        }
+
+        .stream-tab {
+            padding: 32px;
+            box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.09);
+        }
+
+        .gradient {
+            background: linear-gradient(rgba(59, 59, 59, 0.85), rgba(59, 59, 59, 0.85));
+            background-size: cover;
+        }
+
+        a:hover {
+            text-decoration: none;
         }
     </style>
 
@@ -78,14 +94,57 @@ $kategori = query("SELECT * FROM kategori");
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
-
-
-
+        <?php if (!isset($_SESSION["login"])) { ?>
+            <h2>Silahkan Login</h2>
+            <a href="login.php" class="btn btn-primary">Login</a>
+            <hr class="featurette-divider">
+        <?php } else { ?>
+            <img src="assets/img/punimu.png" class=" d-flex mx-auto pr-5" weight="150px" height="150px">
+            <h2 class="text-center">Tentang Kami</h2>
+            <p>Selamat datang, <?= $_SESSION["nama"]; ?>! Kami adalah website penyedia portal layanan anime legal yang dimuat dengan database kami. Silahkan eksplorasi di website ini. </p>
+            <hr class="featurette-divider">
+        <?php } ?>
+        <h2 class="text-center">Top Anime</h2>
+        <div class="card bg-dark text-white w-50 mx-auto">
+            <img class="card-img gradient" src="assets/img/hxhcover.jpg" alt="Card image">
+            <a href="view.php?id=13" class="card-img-overlay gradient">
+                <h2 class="card-title text-light">Hunter X Hunter</h2>
+                <p class="card-text text-light">579,574 visits</p>
+            </a>
+        </div>
+        <div class="card bg-dark text-white mt-2 w-50 mx-auto">
+            <img class="card-img gradient" src="assets/img/bojji.jpg" alt="Card image">
+            <a href="view.php?id=1" class="card-img-overlay gradient">
+                <h2 class="card-title text-light">Ousama Ranking</h2>
+                <p class="card-text text-light">144,354 visits</p>
+            </a>
+        </div>
+        <hr class="featurette-divider">
+        <h2 class="text-center">Supported Streaming Platform</h2>
+        <div class="row g-4">
+            <a href="https://www.netflix.com" class="col-lg-4 col-md-6 text-center">
+                <div class="stream-tab mt-3">
+                    <img src="assets/img/netflix.png" style="width: 200px; height: 150px;">
+                    <h5 class="mt-2 text-dark"><strong>Netflix</strong></h5>
+                </div>
+            </a>
+            <a href="https://www.crunchyroll.com" class="col-lg-4 col-md-6 text-center">
+                <div class="stream-tab mt-3">
+                    <img src="assets/img/crunchyroll.png" style="width: 180px; height: 150px;">
+                    <h5 class="mt-2 text-dark"><strong>Crunchyroll</strong></h5>
+                </div>
+            </a>
+            <a href="https://www.bilibili.tv/id" class="col-lg-4 col-md-6 text-center">
+                <div class="stream-tab mt-3">
+                    <img src="assets/img/bstation.png" style="width: 180px; height: 150px;">
+                    <h5 class="mt-2 text-dark"><strong>Bstation</strong></h5>
+                </div>
+            </a>
+        </div>
 
 
     </div><!-- /.container -->
-
+    </div>
 
     <!-- FOOTER -->
     <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">

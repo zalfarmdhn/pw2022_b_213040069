@@ -83,7 +83,7 @@ if (isset($_POST["submit"])) {
                         <div class="mb-3 row">
                             <label for="nama_anime" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10 form-group">
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" id="exampleFormControlTextarea1" rows="5" maxlength="800" minlength="254"></textarea>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" id="exampleFormControlTextarea1" rows="5" maxlength="800" minlength="5"></textarea>
                             </div>
                         </div>
                         <div class="mb-3 row">

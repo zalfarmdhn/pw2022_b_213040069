@@ -1,20 +1,20 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap');
 
-    .header-menu {
+    .navbar-menu {
         font-family: 'Poppins', sans-serif;
 
     }
 
-    .header-title {
+    .navbar-title {
         font-family: 'Poppins', sans-serif;
     }
 
-    .header-title:hover {
+    .navbar-title:hover {
         font-weight: 600;
     }
 
-    .menu-title,
+    /* .menu-title,
     .card-title {
         font-family: 'Nunito', sans-serif;
     }
@@ -26,7 +26,7 @@
 
     .color-scheme {
         color: #242F9B;
-    }
+    } */
 
     footer {
         padding: 20px;
@@ -46,19 +46,18 @@
 <link rel="icon" href="assets/img/favicon.ico">
 
 <!-- Header -->
-<div class="navbar navbar-dark fixed-top bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-        <a href="index.php" class="navbar-brand d-flex align-items-center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top pt-3 pb-3">
+    <div class="container">
+        <a href="index.php" class="navbar-brand navbar-title d-flex align-items-center">
             <img src="assets/img/punimu.png" class="mr-2" alt="" width="30px" height="30px">
-            <h5 class="header-title">Punimu</h5>
+            Punimu
         </a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- Links -->
-            <ul class="navbar-nav header-menu">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto navbar-menu">
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="anime-section.php">Anime</a>
                 </li>
@@ -88,37 +87,39 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="profile.php?id=<?= $_SESSION["id"]; ?>">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="fas fa-user fa-sm fa-fw mr-2"></i>
                                 Profile
                             </a>
                             <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                 Logout
                             </a>
                         </div>
                     <?php } ?>
                     </li>
-            </ul>
-
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Pencet tombol "logout" jika kamu mau keluar dari sesi ini.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="logout.php">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </nav>
+        </div>
     </div>
+</nav>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Pencet tombol "logout" jika kamu mau keluar dari sesi ini.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="logout.php">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</nav>
+</div>
 </div>
 <!-- End of header -->

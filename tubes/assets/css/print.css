@@ -1,0 +1,30 @@
+body {
+    font-family: Nunito, sans-serif;
+    color: #858796;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    font-weight: 500;
+}
+
+td {
+    font-size: 12px;
+}
+
+th {
+    font-size: 12px;
+}
+
+td,
+th {
+    border-top: 1px solid #858796;
+    text-align: left;
+    padding: 8px;
+}
