@@ -302,6 +302,8 @@ function checkLoginAdmin()
             exit;
         } elseif ($_SESSION['level'] == "user") {
             header("Location: ../index.php");
+        } else {
+            header("Location: ../index.php");
         }
     }
 }

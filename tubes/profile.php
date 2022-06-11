@@ -11,6 +11,27 @@ $id = $_GET["id"];
 
 $uadm = query("SELECT * FROM users WHERE id = $id")[0];
 
+// cek apakah tombol submit sudah ditekan atau belum
+if (isset($_POST["submit"])) {
+
+    // cek apakah data berhasil diubah atau tidak
+    if (editAdmin($_POST) > 0) {
+        echo "
+            <script>
+                alert('Data berhasil diubah!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data gagal diubah!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    }
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,9 +76,9 @@ $uadm = query("SELECT * FROM users WHERE id = $id")[0];
     <div class="container card shadow top">
         <ul>
             <div class="card-body">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $uadm["id"]; ?>">
-                    <?php if ($_SESSION["level"] == "user") { ?>
+                <?php if ($_SESSION["level"] == "user") { ?>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?= $uadm["id"]; ?>">
                         <a href="index.php" class="mt-2"><i class="fas fa-arrow-left mb-3"></i> Kembali</a>
                         <div class="mb-3 row">
                             <label for="genre" class="col-sm-2 col-form-label">Nama</label>
@@ -80,19 +101,20 @@ $uadm = query("SELECT * FROM users WHERE id = $id")[0];
                             <div class="col-sm-10 mt-3">
                                 <input type="password" class="form-control" id="confPass" name="confPass" style="width: 200px;" value="">
                             </div>
+                            <button type="submit" name="submit" class="btn btn-primary text-light">Edit Profil!</button>
                         </div>
                     <?php } else { ?>
                         <script>
                             window.location.href = "admin/edit-admin.php?id=<?= $id ?>";
                         </script>
                     <?php } ?>
-                </form>
-                <!-- End of profile -->
+                    </form>
+                    <!-- End of profile -->
 
 
-                <!-- Marketing messaging and featurettes
+                    <!-- Marketing messaging and featurettes
       ================================================== -->
-                <!-- Wrap the rest of the page in another container to center all the content. -->
+                    <!-- Wrap the rest of the page in another container to center all the content. -->
         </ul>
     </div>
 
