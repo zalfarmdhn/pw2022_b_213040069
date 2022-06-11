@@ -122,10 +122,10 @@ $kategori = query("SELECT * FROM kategori");
                 <h4>Tonton <?= $ani["nama_anime"]; ?> di platform streaming dibawah ini! </h4>
                 <div class="row">
                     <div class="col-1 ml-2">
-                        <a href="#" class="logo"><img src="assets/img/netflix.png" alt="" class="logo"></a>
+                        <a href="<?= $ani["url_netflix"] ?>" class="logo"><img src="assets/img/netflix.png" alt="" class="logo"></a>
                     </div>
                     <div class="col-1 ml-2">
-                        <a href="#" class=""><img src="assets/img/crunchyroll.png" alt="" class="logo"></a>
+                        <a href="<?= $ani["url_croll"] ?>" class=""><img src="assets/img/crunchyroll.png" alt="" class="logo"></a>
                     </div>
                 </div>
             </div>

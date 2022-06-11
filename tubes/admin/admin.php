@@ -47,22 +47,6 @@ if (isset($_POST["cari"])) {
         <!-- Page Heading -->
         <h3 class="mt-3">Data Admin Punimu</h3>
         <p class="mb-4">Data admin yang tersimpan dalam website Punimu</p>
-        <!-- Page Content -->
-        <a href="add-kategori.php" class="btn btn-primary float-right mb-3">
-            <span class="icon"><i class="fas fa-plus"></i> Tambah Admin</span>
-        </a>
-        <!-- Search -->
-        <form class="d-none d-sm-inline-block form-inline navbar-search float-left" action="" method="post">
-            <div class="input-group">
-                <input type="text" name="keyword" class="form-control bg-light border-1 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" name="cari">
-                        <i class="fas fa-search fa-sm"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-        <!-- End of search -->
         <table class="table mt-3">
             <thead>
                 <tr>
@@ -78,9 +62,6 @@ if (isset($_POST["cari"])) {
 
                 <?php $no = 1;
                 foreach ($adm as $a) { ?>
-                    <?php if ($a["level"] == "user") : ?>
-                        <?php exit; ?>
-                    <?php endif; ?>
                     <tr class="align-middle">
                         <th scope="row"><?= $no++; ?></th>
                         <td><?= $a["username"]; ?></td>

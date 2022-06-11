@@ -93,6 +93,18 @@ if (isset($_POST["submit"])) {
                             </div>
                         </div>
                         <div class="mb-3 row">
+                            <label for="url_netflix" class="col-sm-2 col-form-label">URL Netflix</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="url_netflix" value="<?= $ani["url_netflix"]; ?>" name="url_netflix">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="url_croll" class="col-sm-2 col-form-label">URL Crunchyroll</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="url_croll" value="<?= $ani["url_croll"]; ?>" name="url_croll">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
                             <label for="nama_anime" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10 form-group">
                                 <textarea class="form-control" id="deskripsi" name="deskripsi" id="exampleFormControlTextarea1" rows="7"><?= $ani["deskripsi"]; ?></textarea>

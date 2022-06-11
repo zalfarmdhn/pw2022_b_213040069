@@ -71,9 +71,6 @@
                         <?php endforeach; ?>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-3" href="#">Stream</a>
-                </li>
                 <?php if (!isset($_SESSION["login"])) { ?>
                     <li class="nav-item">
                         <a class="btn btn-primary nav-link mr-3" href="login.php" style="color: white;"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>

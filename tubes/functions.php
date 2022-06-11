@@ -23,6 +23,8 @@ function tambahAnime($data)
     // ambil data dari tiap elemen dalam form
     $nama = htmlspecialchars($data["nama_anime"]);
     $nama_alt = htmlspecialchars($data["nama_alternatif"]);
+    $netflix = htmlspecialchars($data["url_netflix"]);
+    $croll = htmlspecialchars($data["url_croll"]);
     $deskripsi = $data["deskripsi"];
     $studio = htmlspecialchars($data["studio"]);
     $episode = htmlspecialchars($data["episode"]);
@@ -40,7 +42,7 @@ function tambahAnime($data)
     // query insert data
     $query =    "   INSERT INTO anime
                     VALUES
-                    ('', '$poster', '$nama', '$nama_alt',  '$deskripsi', '$studio', '$episode', '$status', '$rilis', '$genres')
+                    ('', '$poster', '$nama', '$nama_alt', '$netflix', '$croll',  '$deskripsi', '$studio', '$episode', '$status', '$rilis', '$genres')
                 ";
     mysqli_query($conn, $query);
 
@@ -140,6 +142,8 @@ function editAnime($data)
     $id = $data["id"];
     $nama = htmlspecialchars($data["nama_anime"]);
     $nama_alt = htmlspecialchars($data["nama_alternatif"]);
+    $netflix = htmlspecialchars($data["url_netflix"]);
+    $croll = htmlspecialchars($data["url_croll"]);
     $deskripsi = $data["deskripsi"];
     $studio = htmlspecialchars($data["studio"]);
     $episode = htmlspecialchars($data["episode"]);
@@ -161,6 +165,8 @@ function editAnime($data)
                 poster_anime = '$gambar',
                 nama_anime = '$nama',
                 nama_alternatif = '$nama_alt',
+                url_netflix = '$netflix',
+                url_croll = '$croll',
                 deskripsi = '$deskripsi',
                 studio = '$studio',
                 episode = '$episode',

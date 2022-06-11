@@ -67,12 +67,6 @@ $users = query("SELECT * FROM users");
                 </a>
             </li>
         <?php endif; ?>
-        <!-- Tambah Blogs -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-rss"></i>
-                <span>Blogs</span></a>
-        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="../index.php">
