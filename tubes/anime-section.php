@@ -37,6 +37,9 @@ $kategori = query("SELECT * FROM kategori");
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 
     <title>Punimu</title>
     <!-- Favicons -->
@@ -49,6 +52,20 @@ $kategori = query("SELECT * FROM kategori");
 
         a:hover {
             text-decoration: none;
+        }
+
+        h3 {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        h6,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fixed {
+            width: 200px;
+            height: 399px;
         }
     </style>
 </head>
@@ -71,8 +88,7 @@ $kategori = query("SELECT * FROM kategori");
 
             <form class="d-none d-sm-inline-block form-inline navbar-search" action="" method="post">
                 <div class="input-group">
-                    <input type="text" name="keyword" class="form-control bg-light border-1 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="keyword">
-                    <button class="btn btn-primary" type="submit" name="cari" id="filter" hidden>
+                    <input type="text" name="keyword" class="form-control bg-light border-1 small" placeholder="Cari anime..." aria-label="Search" aria-describedby="basic-addon2" id="keyword">
                     </button>
                 </div>
             </form>
@@ -87,11 +103,11 @@ $kategori = query("SELECT * FROM kategori");
             <div class="row no-gutters" id="content">
                 <?php foreach ($anime as $ani) : ?>
                     <a href="view.php?id=<?= $ani["id"]; ?>">
-                        <div class="mt-3 mr-3">
+                        <div class="mt-3 mr-3 fixed">
                             <img class="rounded shadow" src="assets/img/<?= $ani["poster_anime"]; ?>" width="200px" height="300px">
                             <div class="card-body pr-3">
                                 <h6 class="card-text row"><small class="text-muted"><?= $ani["studio"]; ?></small></h6>
-                                <h5 class="card-title row"><?= $ani["nama_anime"]; ?></h5>
+                                <h5 class="card-title row" style="font-size: 18px;"><?= $ani["nama_anime"]; ?></h5>
                                 <p class="card-text row"><small class="text-muted"><?= $ani["nama_alternatif"]; ?></small></p>
                             </div>
                         </div>
@@ -102,18 +118,7 @@ $kategori = query("SELECT * FROM kategori");
     </div>
     <!-- End of card -->
 
-    <!-- Footer -->
-    <footer class="mt-5 fs-6 bg-dark">
-        <div class="copyright">
-            <p>©2022 Punimu</p>
-        </div>
-        <div class="row">
-            <a href="#"><i class="fab fa-instagram mx-5" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-twitter mx-5" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-facebook-f mx-5" aria-hidden="true"></i></a>
-        </div>
-    </footer>
-    <!-- End of Footer -->
+    <?php include_once 'inc/user-footer.php'; ?>
 
 
 

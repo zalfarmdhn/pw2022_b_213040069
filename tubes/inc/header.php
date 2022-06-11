@@ -14,7 +14,7 @@ $users = query("SELECT * FROM users");
     <ul class="navbar-nav grad-dark-blue sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
             <div class="sidebar-brand-icon">
                 <img src="../assets/img/punimu.png" alt="" width="30px" height="30px">
             </div>

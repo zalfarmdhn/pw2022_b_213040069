@@ -57,43 +57,46 @@ $uadm = query("SELECT * FROM users WHERE id = $id")[0];
             <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $uadm["id"]; ?>">
-                    <a href="admin.php" class="mt-2"><i class="fas fa-arrow-left mb-3"></i> Kembali</a>
-                    <div class="mb-3 row">
-                        <label for="genre" class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama" name="nama" required style="width: 150px;" value="<?= $uadm["nama"]; ?>">
+                    <?php if ($_SESSION["level"] == "user") { ?>
+                        <a href="index.php" class="mt-2"><i class="fas fa-arrow-left mb-3"></i> Kembali</a>
+                        <div class="mb-3 row">
+                            <label for="genre" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nama" name="nama" required style="width: 150px;" value="<?= $uadm["nama"]; ?>">
+                            </div>
+                            <label for="genre" class="col-sm-2 mt-3 col-form-label">Username</label>
+                            <div class="col-sm-10 mt-3">
+                                <input type="text" class="form-control" id="username" name="username" required style="width: 150px;" value="<?= $uadm["username"]; ?>">
+                            </div>
+                            <label for="genre" class="col-sm-2 mt-3 col-form-label">Email</label>
+                            <div class="col-sm-10 mt-3">
+                                <input type="text" class="form-control" id="email" name="email" required style="width: 200px;" value="<?= $uadm["email"]; ?>">
+                            </div>
+                            <label for="genre" class="col-sm-2 mt-3 col-form-label">Password Baru</label>
+                            <div class="col-sm-10 mt-3">
+                                <input type="password" class="form-control" id="password" name="password" style="width: 200px;" value="">
+                            </div>
+                            <label for="genre" class="col-sm-2 mt-3 col-form-label">Konfirm Password</label>
+                            <div class="col-sm-10 mt-3">
+                                <input type="password" class="form-control" id="confPass" name="confPass" style="width: 200px;" value="">
+                            </div>
                         </div>
-                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Username</label>
-                        <div class="col-sm-10 mt-3">
-                            <input type="text" class="form-control" id="username" name="username" required style="width: 150px;" value="<?= $uadm["username"]; ?>">
-                        </div>
-                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Email</label>
-                        <div class="col-sm-10 mt-3">
-                            <input type="text" class="form-control" id="email" name="email" required style="width: 200px;" value="<?= $uadm["email"]; ?>">
-                        </div>
-                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Password Baru</label>
-                        <div class="col-sm-10 mt-3">
-                            <input type="password" class="form-control" id="password" name="password" style="width: 200px;" value="">
-                        </div>
-                        <label for="genre" class="col-sm-2 mt-3 col-form-label">Konfirm Password</label>
-                        <div class="col-sm-10 mt-3">
-                            <input type="password" class="form-control" id="confPass" name="confPass" style="width: 200px;" value="">
-                        </div>
-                    </div>
-                    <!-- End of profile -->
+                    <?php } else { ?>
+                        <script>
+                            window.location.href = "admin/edit-admin.php?id=<?= $id ?>";
+                        </script>
+                    <?php } ?>
+                </form>
+                <!-- End of profile -->
 
 
-                    <!-- Marketing messaging and featurettes
+                <!-- Marketing messaging and featurettes
       ================================================== -->
-                    <!-- Wrap the rest of the page in another container to center all the content. -->
+                <!-- Wrap the rest of the page in another container to center all the content. -->
         </ul>
     </div>
 
-    <!-- FOOTER -->
-    <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
-        <path d="M 0,500 C 0,500 0,250 0,250 C 90.28571428571428,284.5357142857143 180.57142857142856,319.07142857142856 300,315 C 419.42857142857144,310.92857142857144 568,268.25 691,243 C 814,217.75 911.4285714285716,209.92857142857142 1032,214 C 1152.5714285714284,218.07142857142858 1296.2857142857142,234.03571428571428 1440,250 C 1440,250 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#343a40ff" class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
-    </svg>
-    <!-- End of footer -->
+    <?php include_once 'inc/user-footer.php'; ?>
 
 
 

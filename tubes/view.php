@@ -11,6 +11,7 @@ $id = $_GET["id"];
 
 // query data anime berdasarkan id
 $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
+$kategori = query("SELECT * FROM kategori");
 ?>
 
 <!doctype html>
@@ -27,6 +28,9 @@ $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 
     <!-- Personal Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -40,6 +44,16 @@ $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
 
         .top {
             margin-top: 5rem;
+        }
+
+        h3,
+        h1 {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        h4,
+        p {
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
@@ -62,42 +76,43 @@ $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
             </div>
             <div class="col-8 md-5">
                 <h1 class="mb-4"><i class="fas fa-tv"></i> <b><?= $ani["nama_anime"]; ?></b></h1>
+                <h3 class="mb-4" style="color: #767676;"><?= $ani["nama_alternatif"]; ?></h3>
                 <div class="row">
                     <div class="col-6 col-sm-3">
-                        <h4><b>Nama Anime</b></h4>
+                        <h4><b>Nama</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["nama_anime"]; ?>
+                        <p><?= $ani["nama_anime"]; ?></p>
                     </div>
                     <div class="col-6 col-sm-3">
                         <h4><b>Studio</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["studio"]; ?>
+                        <p><?= $ani["studio"]; ?></p>
                     </div>
                     <div class="col-6 col-sm-3">
                         <h4><b>Episode</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["episode"]; ?>
+                        <p><?= $ani["episode"]; ?></p>
                     </div>
                     <div class="col-6 col-sm-3">
                         <h4><b>Status</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["status_anime"]; ?>
+                        <p><?= $ani["status_anime"]; ?></p>
                     </div>
                     <div class="col-6 col-sm-3">
                         <h4><b>Rilis</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["rilis"]; ?>
+                        <p><?= $ani["rilis"]; ?></p>
                     </div>
                     <div class="col-6 col-sm-3">
                         <h4><b>Genre</b></h4>
                     </div>
                     <div class="col-6 col-sm-3">
-                        <?= $ani["genre"]; ?>
+                        <p><?= $ani["genre"]; ?></p>
                     </div>
                 </div>
                 <div class="container row">
@@ -115,21 +130,9 @@ $ani = query("SELECT * FROM anime NATURAL JOIN kategori WHERE id = $id")[0];
                 </div>
             </div>
         </div>
-
-
     </div>
-    <!-- Footer -->
-    <footer class="mt-5 fs-6 bg-dark">
-        <div class="copyright">
-            <p>©2022 Punimu</p>
-        </div>
-        <div class="row">
-            <a href="#"><i class="fab fa-instagram mx-5" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-twitter mx-5" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-facebook-f mx-5" aria-hidden="true"></i></a>
-        </div>
-    </footer>
-    <!-- End of Footer -->
+
+    <?php include_once 'inc/user-footer.php'; ?>
 
 
 
