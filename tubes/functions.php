@@ -298,11 +298,7 @@ function checkLoginAdmin()
 
     // cek session level 
     if (isset($_SESSION["level"])) {
-        if ($_SESSION['level'] == "admin" && $_SESSION['level'] == "super admin") {
-            exit;
-        } elseif ($_SESSION['level'] == "user") {
-            header("Location: ../index.php");
-        } else {
+        if ($_SESSION['level'] !== "admin" && $_SESSION['level'] !== "super admin") {
             header("Location: ../index.php");
         }
     }
